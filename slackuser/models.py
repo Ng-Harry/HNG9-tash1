@@ -6,3 +6,7 @@ class SlackUser(models.Model):
     age = models.IntegerField()
     bio = models.TextField()
     
+    def __str__(self):
+        return self.username
+    
+    
