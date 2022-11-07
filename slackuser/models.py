@@ -10,3 +10,19 @@ class SlackUser(models.Model):
         return self.username
     
     
+class Student(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+    DOB = models.DateField()
+    BIO = models.TextField(blank=True)
+    class StudentClass(models.TextChoices):
+        PRIMARYONE = "PR1","Primary One"
+        PRIMARYTWO = "PR2", "Primary Two"
+        PRIMARYTHREE = "PR3", "Primary Three"
+        
+    studentClass = models.CharField(max_length=150, choices=StudentClass.choices, null=True)
+    
+    def __str__(self):
+        return self.name
+    
+    
+    
